@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Work - Parousia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: radial-gradient(ellipse at top left, #2d2e4a 60%, #18191a 100%);
+      color: #fff;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+    .about-card {
+      background: linear-gradient(90deg, #7b5cff 0%, #5df6ff 100%);
+      border-radius: 24px;
+      padding: 2px;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+    .about-inner {
+      background: #23243a;
+      border-radius: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 36px 40px;
+    }
+    .about-info {
+      flex: 2;
+      min-width: 260px;
+    }
+    .about-info h2 {
+      font-size: 2.2em;
+      font-weight: 700;
+      margin: 0 0 18px 0;
+      color: #fff;
+      background: linear-gradient(90deg, #b993ff 0%, #5df6ff 100%);
+      display: inline-block;
+      padding: 8px 32px 8px 18px;
+      border-radius: 18px 0 18px 0;
+      letter-spacing: 1px;
+    }
+    .about-info p {
+      color: #bdbddd;
+      font-size: 1.08em;
+      margin-bottom: 18px;
+      line-height: 1.7;
+    }
+    .profile-img-space {
+      flex: 1;
+      min-width: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .profile-img {
+      width: 180px;
+      height: 210px;
+      border-radius: 28px;
+      object-fit: cover;
+      background: #18191a;
+      border: 4px solid #7b5cff;
+      box-shadow: 0 4px 24px rgba(123,92,255,0.18);
+    }
+    .section-card {
+      background: linear-gradient(90deg, #7b5cff 0%, #5df6ff 100%);
+      border-radius: 24px;
+      padding: 2px;
+      margin-bottom: 40px;
+    }
+    .section-inner {
+      background: #23243a;
+      border-radius: 22px;
+      padding: 36px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px 60px;
+      justify-content: space-between;
+    }
+    .section-block {
+      flex: 1 1 220px;
+      min-width: 220px;
+    }
+    .section-block h3 {
+      color: #fff;
+      font-size: 1.18em;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .section-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 8px 0;
+      color: #bdbddd;
+      font-size: 1em;
+    }
+    .section-block ul li {
+      margin-bottom: 7px;
+    }
+    .tech-icons {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .tech-icons img {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #fff;
+      padding: 4px;
+      box-shadow: 0 2px 8px rgba(123,92,255,0.10);
+    }
+    .section-block .label {
+      display: inline-block;
+      background: #7b5cff;
+      color: #fff;
+      border-radius: 12px;
+      padding: 2px 12px;
+      font-size: 0.95em;
+      margin-bottom: 8px;
+      margin-right: 8px;
+    }
+    @media (max-width: 900px) {
+      .about-inner, .section-inner {
+        flex-direction: column;
+        padding: 24px 12px;
+        gap: 24px;
+      }
+      .container {
+        padding: 0 4px;
+      }
+    }
+    /* Add to your CSS in skills.html (or any page with navigation) */
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 15px; /* Default gap for larger screens */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-list {
+    gap: 25px; /* Increase gap for mobile */
+    padding: 0 15px; /* Add horizontal padding */
+    flex-wrap: wrap; /* Allow items to wrap if needed */
+  }
+  
+  .nav-list li a {
+    padding: 10px; /* Add touch-friendly spacing */
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li><a href="index.html">My information</a></li>
+      <li><a href="skills.html" class="active">Skills</a></li>
+      <li><a href="work.html">My Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <!-- About Me Card -->
+    <div class="about-card">
+      <div class="about-inner">
+        <div class="about-info">
+          <h2>About me</h2>
+          <p>
+            Hi! My name is Imbabazi Parousia K.<br>
+            I am a Graphic Designer based in Kigali, Rwanda with experience in branding, UI/UX, and digital content.<br>
+            My objective: Challenge myself in new environments, develop and improve my skills through different projects, and contribute more to the creative industry with my abilities.
+          </p>
+        </div>
+        <div class="profile-img-space">
+          <!-- Replace 'your-image.jpg' with your actual image file -->
+          <img src="images/mbabazi.png" alt="Profile Image" class="profile-img">
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills & Info Card -->
+    <div class="section-card">
+      <div class="section-inner">
+        <div class="section-block">
+          <h3>Education</h3>
+          <ul>
+            <li><strong>SJITC Inyambirambo</strong></li>
+            <li>Level 3 - Graphic Design</li>
+            <li><span class="label">2023 - Now</span></li>
+          </ul>
+        </div>
+        <div class="section-block">
+          <h3>Technical skill</h3>
+          <div class="tech-icons">
+            <img src="images/icons8-figma-96.png" alt="Figma">
+            <img src="images/icons8-adobe-photoshop-96.png" alt="Photoshop">
+            <img src="images/icons8-adobe-illustrator-96.png" alt="Illustrator">
+            <img src="images/icons8-canva-96.png" alt="canva">
+            <img src="images/icons8-adobe-premiere-pro-96.png" alt="Premiere">
+
+          </div>
+        </div>
+        <div class="section-block">
+          <h3>Soft skill</h3>
+          <ul>
+            <li>Teamwork</li>
+            <li>Communication</li>
+            <li>Critical Thinking</li>
+            <li>Time Management</li>
+          </ul>
+        </div>
+        <div class="section-block">
+          <h3>Skill set</h3>
+          <ul>
+            <li>User Research</li>
+            <li>Wireframing</li>
+            <li>Web Design</li>
+            <li>App Design</li>
+            <li>Prototyping</li>
+            <li>Brainstorming</li>
+          </ul>
+        </div>
+        <div class="section-block">
+          <h3>Interest</h3>
+          <ul>
+            <li>Design Trends</li>
+            <li>Technology</li>
+          </ul>
+        </div>
+        <div class="section-block">
+          <h3>Language</h3>
+          <ul>
+            <li>English</li>
+            <li>Kinyarwanda</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .navbar {
+      width: 100%;
+      background: #232526;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      border-bottom: 1px solid #333;
+      margin-bottom: 30px;
+    }
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .navbar li {
+      margin: 0 30px;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1em;
+      padding: 22px 0;
+      display: block;
+      transition: color 0.2s;
+    }
+    .navbar a:hover, .navbar .active {
+      color: #7b5cff;
+    }
+    @media (max-width: 600px) {
+      .navbar ul { flex-direction: column; }
+      .navbar li { margin: 0 0 10px 0; }
+    }
+  </style>
+</body>
+</html>

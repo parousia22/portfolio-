@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Parousia</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #18191a;
+            color: #fff;
+        }
+        .navbar-vertical {
+            width: 180px;
+            min-height: 100vh;
+            background: #232526;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            border-right: 1px solid #333;
+        }
+        .navbar-vertical ul {
+            list-style: none;
+            margin: 0;
+            padding: 40px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .navbar-vertical li {
+            margin: 0;
+        }
+        .navbar-vertical a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.15em;
+            padding: 18px 0 18px 32px;
+            display: block;
+            border-left: 4px solid transparent;
+            transition: color 0.2s, background 0.2s, border-color 0.2s;
+            border-radius: 0 20px 20px 0;
+        }
+        .navbar-vertical a:hover, .navbar-vertical .active {
+            color: #e74c3c;
+            background: #18191a;
+            border-left: 4px solid #e74c3c;
+        }
+        body {
+            margin-left: 180px;
+        }
+        .main-flex {
+            display: flex;
+            max-width: 1100px;
+            margin: 60px auto;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .gallery-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            min-width: 220px;
+            max-width: 240px;
+            margin: 0;
+        }
+        .gallery-item {
+            background: #232526;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+            width: 100%;
+            transition: transform 0.4s cubic-bezier(.4,2.08,.55,.44), box-shadow 0.4s;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            animation: fadeInUp 1s forwards;
+        }
+        .gallery-item:nth-child(1) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.6s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.8s; }
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(231,76,60,0.18);
+        }
+        .gallery-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-caption {
+            padding: 14px 12px;
+            color: #fff;
+            font-size: 1em;
+            text-align: center;
+        }
+        .skills-section {
+            flex: 1;
+            background: #232526;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+            padding: 48px 36px 36px 36px;
+            min-width: 0;
+        }
+        .skills-section h2 {
+            color: #e74c3c;
+            font-size: 2.2em;
+            margin-bottom: 28px;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        .skills-tags {
+            margin-bottom: 36px;
+            text-align: center;
+        }
+        .tag {
+            display: inline-block;
+            background: #18191a;
+            color: #e74c3c;
+            padding: 10px 22px;
+            border-radius: 22px;
+            margin: 7px 10px 7px 0;
+            font-size: 1em;
+            font-weight: 500;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(231,76,60,0.08);
+            transition: background 0.2s, color 0.2s;
+        }
+        .tag:hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+        .skill-bars {
+            margin-top: 18px;
+        }
+        .skill-bar {
+            margin-bottom: 26px;
+        }
+        .skill-label {
+            margin-bottom: 7px;
+            font-size: 1.08em;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        .bar-bg {
+            background: #18191a;
+            border-radius: 12px;
+            height: 20px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        }
+        .bar-fill {
+            background: linear-gradient(90deg, #e74c3c 60%, #ffb347 100%);
+            height: 100%;
+            border-radius: 12px;
+            transition: width 0.8s cubic-bezier(.4,2.08,.55,.44);
+            animation: fillBar 2s cubic-bezier(.4,2.08,.55,.44);
+        }
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        @media (max-width: 900px) {
+            .main-flex {
+                flex-direction: column;
+                gap: 0;
+            }
+            .gallery-section {
+                flex-direction: row;
+                flex-wrap: wrap;
+                max-width: 100%;
+                min-width: 0;
+                margin-bottom: 30px;
+                justify-content: center;
+            }
+            .gallery-item {
+                width: 45vw;
+                min-width: 140px;
+                max-width: 220px;
+            }
+            .skills-section {
+                padding: 24px 8px 24px 8px;
+            }
+        }
+        @media (max-width: 700px) {
+            .navbar-vertical {
+                position: static;
+                width: 100%;
+                min-height: unset;
+                flex-direction: row;
+                border-right: none;
+                border-bottom: 1px solid #333;
+            }
+            .navbar-vertical ul {
+                flex-direction: row;
+                padding: 0;
+                gap: 0;
+                justify-content: space-around;
+            }
+            .navbar-vertical a {
+                padding: 14px 0;
+                border-left: none;
+                border-bottom: 4px solid transparent;
+                border-radius: 0;
+                text-align: center;
+                font-size: 1em;
+            }
+            .navbar-vertical a:hover, .navbar-vertical .active {
+                border-bottom: 4px solid #e74c3c;
+                border-left: none;
+                background: #18191a;
+            }
+            body {
+                margin-left: 0;
+            }
+            .main-flex {
+                margin: 30px 0 0 0;
+                padding: 0 2vw;
+            }
+        }
+        @media (max-width: 600px) {
+            .gallery-item {
+                width: 100%;
+                min-width: 0;
+            }
+            .skills-section h2 {
+                font-size: 1.4em;
+            }
+        }
+        /* Add to your CSS in skills.html (or any page with navigation) */
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 15px; /* Default gap for larger screens */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-list {
+    gap: 25px; /* Increase gap for mobile */
+    padding: 0 15px; /* Add horizontal padding */
+    flex-wrap: wrap; /* Allow items to wrap if needed */
+  }
+  
+  .nav-list li a {
+    padding: 10px; /* Add touch-friendly spacing */
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+}
+    </style>
+</head>
+<body>
+<nav class="navbar-vertical">
+    <ul class="nav-list">
+  <li><a href="index.html">My information</a></li>
+  <li><a href="skills.html" class="active">Skills</a></li>
+  <li><a href="work.html">My Work</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<div class="main-flex">
+    <div class="gallery-section">
+        <div class="gallery-item">
+            <img src="images/brand.jpeg" alt="Branding Project" class="gallery-img">
+            <div class="gallery-caption">Branding Project</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images/ux.jpeg" alt="UI/UX Design" class="gallery-img">
+            <div class="gallery-caption">UI/UX Design</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images/banner.jpeg" alt="Poster Design" class="gallery-img">
+            <div class="gallery-caption">Poster Design</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images/social.jpeg" alt="Social Media Content" class="gallery-img">
+            <div class="gallery-caption">Social Media Content</div>
+        </div>
+    </div>
+    <div class="skills-section">
+        <h2>SKILL AREA</h2>
+        <div class="skills-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">ADOBE PHOTOSHOP</span>
+            <span class="tag">CANVA</span>
+            <span class="tag">ADOBE ILLUSTRATOR</span>
+            <span class="tag">ADOBE PREMIERE</span>
+            <span class="tag">UX/UI DESIGN</span>
+        </div>
+        <div class="skill-bars">
+            <div class="skill-bar">
+                <div class="skill-label">UX/UI DESIGN <span style="float:right;">80%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-label">Canva <span style="float:right;">70%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width:70%"></div></div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-label">HTML <span style="float:right;">95%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width:95%"></div></div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-label">CSS <span style="float:right;">90%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width:90%"></div></div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-label">JavaScript <span style="float:right;">65%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width:65%"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
